@@ -1,4 +1,5 @@
-var router = require('express').Router();
+var express = require('express');
+var router = express.Router();
 var tweetBank = require('../tweetbank');
 
 
@@ -8,3 +9,9 @@ router.get('/', function(req, res){
 });
 
 module.exports = router;
+
+ router.get('../public/stylesheets/style.css', function(req, res){
+  res.sendFile();
+ });
+
+ router.listen(1337);
