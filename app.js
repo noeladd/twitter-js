@@ -1,10 +1,22 @@
 var express = require('express');
+var swig = require('swig');
 var app = express();
 
+var locals = {
+    title: 'An Example',
+    people: [
+        { name: 'Gandalf'},
+        { name: 'Frodo' },
+        { name: 'Hermione'}
+    ]
+};
 
-app.listen(3000, function(){
+app.engine('html', swig.renderFile);
 
-});
+app.set('view engine', 'html');
+app.set('views', './views');
+
+swig.setDefaults({cache: false});
 
 
 app.use(function(req, res, next){
@@ -18,9 +30,18 @@ app.use('/special', function(req, res, next){
 });
 
 app.get('/', function(req, res){
-  res.send('Welcome to our page!');
+  res.render('index', {locals: locals});
 });
 
 app.get('/news', function (req, res){
   res.send('This is the news page!');
 });
+
+
+
+// swig.renderFile('./views/index.html', locals, function (err, output) {
+//     if (err) throw err;
+//     // console.log(output);
+// });
+
+app.listen(3000);
