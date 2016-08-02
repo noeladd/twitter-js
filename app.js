@@ -1,6 +1,7 @@
-var express = require('express');
+var express = require('express')
 var swig = require('swig');
 var app = express();
+var routes = require('./routes')
 
 var locals = {
     title: 'An Example',
@@ -18,7 +19,7 @@ app.set('views', './views');
 
 swig.setDefaults({cache: false});
 
-
+app.use('/', routes);
 app.use(function(req, res, next){
     console.log(req.method, req.originalUrl, res.statusCode);
     next();
@@ -29,19 +30,7 @@ app.use('/special', function(req, res, next){
   next();
 });
 
-app.get('/', function(req, res){
-  res.render('index', {title: locals.title, people: locals.people});
-});
-
-app.get('/news', function (req, res){
-  res.send('This is the news page!');
-});
 
 
-
-// swig.renderFile('./views/index.html', locals, function (err, output) {
-//     if (err) throw err;
-//     // console.log(output);
-// });
 
 app.listen(3000);
