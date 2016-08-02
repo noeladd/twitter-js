@@ -20,22 +20,19 @@ var randArrayEl = function(arr) {
 };
 
 var getFakeName = function() {
-  var fakeFirsts = ['Nimit', 'Dave', 'Shanna', 'Charlotte', 'Scott', 'Ayana', 'Omri', 'Gabriel', 'Joe'];
-  var fakeLasts = ['Hashington', 'Stackson', 'McQueue', 'OLogn', 'Ternary', 'Claujure', 'Dunderproto', 'Binder', 'Docsreader', 'Ecma'];
+  var fakeFirsts = ['Nimit', 'Dave', 'Shanna', 'Ashi', 'Gabriel', 'Emily', 'Ashley', 'Kimber', 'Ani'];
+  var fakeLasts = ['Hashington', 'Hopperson', 'McQueue', 'OLogn', 'Ternary', 'Claujure', 'Dunderproto', 'Binder', 'Docsreader', 'Ecma'];
   return randArrayEl(fakeFirsts) + " " + randArrayEl(fakeLasts);
 };
 
 var getFakeTweet = function() {
   var awesome_adj = ['awesome', 'breathtaking', 'amazing', 'funny', 'sweet', 'cool', 'wonderful', 'mindblowing'];
-  return "Fullstack Academy is " + randArrayEl(awesome_adj) + "! The instructors are just so " + randArrayEl(awesome_adj) + ". #fullstacklove #codedreams";
+  return "Grace Hopper Academy is " + randArrayEl(awesome_adj) + "! The instructors are just so " + randArrayEl(awesome_adj) + ". #GHAlove #codedreams";
 };
 
 for (var i = 0; i < 10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 }
 
-add("Jo", "hi");
-add("Rachel", "hello");
-console.log(find(function(o){
-	return o.name == 'Rachel' } ));
+add("Rachel", "This is our tweet");
 
