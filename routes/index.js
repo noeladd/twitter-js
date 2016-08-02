@@ -3,15 +3,14 @@ var router = express.Router();
 var tweetBank = require('../tweetbank');
 
 
+
 router.get('/', function(req, res){
   var tweets = tweetBank.list();
   res.render('index', {tweets: tweets } );
 });
 
-module.exports = router;
-
- router.get('../public/stylesheets/style.css', function(req, res){
-  res.sendFile();
+ router.get('/public/stylesheets/style.css', function(req, res){
+  res.sendFile('public/stylesheets/style.css', { root:   __dirname + "/../" });
  });
 
- router.listen(1337);
+module.exports = router;
