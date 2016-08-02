@@ -30,7 +30,7 @@ app.use('/special', function(req, res, next){
 });
 
 app.get('/', function(req, res){
-  res.render('index', {locals: locals});
+  res.render('index', {title: locals.title, people: locals.people});
 });
 
 app.get('/news', function (req, res){
