@@ -30,6 +30,8 @@ app.use('/special', function(req, res, next){
   next();
 });
 
+app.use('/', express.static('public'));
+
 
 
 
