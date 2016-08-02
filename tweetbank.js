@@ -33,3 +33,9 @@ var getFakeTweet = function() {
 for (var i = 0; i < 10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 }
+
+add("Jo", "hi");
+add("Rachel", "hello");
+console.log(find(function(o){
+	return o.name == 'Rachel' } ));
+
