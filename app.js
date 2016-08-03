@@ -2,6 +2,7 @@ var express = require('express')
 var swig = require('swig');
 var app = express();
 var routes = require('./routes')
+var bodyParser = require('body-parser')
 
 var locals = {
     title: 'An Example',
@@ -18,8 +19,12 @@ app.set('view engine', 'html');
 app.set('views', './views');
 
 swig.setDefaults({cache: false});
-
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
 app.use('/', routes);
+
+
+
 app.use(function(req, res, next){
     console.log(req.method, req.originalUrl, res.statusCode);
     next();
